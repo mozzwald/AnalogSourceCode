@@ -4,6 +4,47 @@ I wanted to have a nice repo of the source to the games I poured over in the pag
 
 Most of the code here was found on KSquiggle’s Atari 8-bit Programming Shrine - Many thanks to Kevin Chase (https://ksquiggle.neocities.org)
 
+## Building with `make`
+
+This repo now includes a `Makefile` that builds the supported standalone games with the MADS assembler (`mads`) and writes `.xex` files into `build/`.
+
+Requirements:
+
+* `mads`
+* `python3`
+* `make`
+
+Build everything currently supported:
+
+```sh
+make
+```
+
+Clean the generated files:
+
+```sh
+make clean
+```
+
+The build uses `tools/madsify.py` to translate the older source dialect used by some of these listings into a form MADS can assemble. Generated `.xex` files are written to `build/`, and temporary translated sources are written to `build/.mads-src/`.
+
+The current `Makefile` builds these games:
+
+* Avalanche
+* Battle in the B-Ring
+* Bonk
+* BOPOTRON
+* Elevator Repairman
+* Fill 'Er Up
+* Fill 'Er Up II
+* Harvey Wallbanger
+* Livewire
+* Planetary Defense
+* Race in Space
+* Speedski
+
+Some other sources in the repo are not included in the `Makefile` yet because they either depend on missing include fragments or still need additional assembler-dialect cleanup before they can be built reliably with MADS.
+
 * Avalanche, by Tommy Bennett, from A.N.A.L.O.G. #21 (August 1984)
 * Bacterion!, by Kyle Peacock and Tom Hudson, from A.N.A.L.O.G. #20 (July 1984)
 * Battle in the B-Ring, by Lew Thomits, Jr., from A.N.A.L.O.G. #19 (June 1984)
